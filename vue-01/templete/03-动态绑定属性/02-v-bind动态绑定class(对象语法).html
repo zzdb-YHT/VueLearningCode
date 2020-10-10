@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .isRed {
+      color: red;
+    }
+    .isGreen {
+      color: green;
+    }
+  </style>
+</head>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<body>
+<div id="app">
+  <h1 class="isRed">{{message}}</h1>
+  <h1 v-bind:class="isGreen">{{message}}</h1>
+  <h1 v-bind:class="{isRed:redFlag,isGreen: greenFlag}">{{message}}</h1>
+
+  <h1 class="title" v-bind:class="{isRed:redFlag,isGreen: greenFlag}">{{message}}</h1>
+
+  <h1 v-bind:class="{isRed:redFlag,isGreen: greenFlag}">{{message}}</h1>
+  <button v-on:click="change">按钮</button>
+
+  <h1 v-bind:class="getClasses()">{{message}}</h1>
+
+</div>
+</body>
+<script>
+
+  const app = new Vue({
+    el:"#app",
+    data:{
+      "message":"你好",
+      "isRed":"isRed",
+      "isGreen":"isGreen",
+      "redFlag":true,
+      "greenFlag":false
+    },
+    methods:{
+      change:function () {
+        this.redFlag = ! this.redFlag;
+      },
+      getClasses:function () {
+        return {isRed:this.redFlag,isGreen: this.greenFlag};
+      }
+    }
+
+  });
+
+</script>
+
+<vue>
+</vue>
+</html>

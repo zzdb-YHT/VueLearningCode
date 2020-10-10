@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app">
+
+<!-- v-if 和 v-show 的相同点 值为true 都显示， 值为false 都不显示-->
+
+
+<!--  v-if 和 v-show 的不同点 -->
+
+<!-- 在 v-if 对应的值为 false 时，其修饰的dom 会直接被删除掉 -->
+  <h2 v-if="showFlag" id="aaa">{{message}}</h2>
+
+<!-- 在 v-show 对应的值为 false 时，其修饰的dom 只是被设置了样式属性 display：none-->
+  <h2 v-show="showFlag" id="bbb">{{message}}</h2>
+
+</div>
+
+
+</body>
+
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      showFlag: true,
+      message: "你好"
+    }
+  });
+</script>
+
+</html>

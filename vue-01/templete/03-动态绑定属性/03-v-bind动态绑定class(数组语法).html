@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .isRed {
+      color: red;
+    }
+    .isGreen {
+      color: green;
+    }
+  </style>
+</head>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<body>
+<div id="app">
+  <h2 class="title" v-bind:class="[aaa,bbb]">{{message}}</h2>
+  <h2 class="title" v-bind:class="getClasses()">{{message}}</h2>
+
+</div>
+</body>
+<script>
+
+  const app = new Vue({
+    el:"#app",
+    data:{
+      "message":"你好",
+      "isRed":"isRed",
+      "isGreen":"isGreen",
+      "redFlag":true,
+      "greenFlag":false,
+      "aaa": "aaa",
+      "bbb": "bbb"
+    },
+    methods:{
+      change:function () {
+        this.redFlag = ! this.redFlag;
+      },
+      getClasses:function () {
+        return [this.aaa,this.bbb];
+      }
+    }
+
+  });
+
+</script>
+
+<vue>
+</vue>
+</html>

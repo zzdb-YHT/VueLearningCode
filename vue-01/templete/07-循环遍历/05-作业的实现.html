@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+  <style>
+    .activeRed {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<!--
+  说明：实现数组默认第一项红色，之后点击项 红色
+-->
+
+<div id="app">
+  <ul>
+    <li v-for="(item, index) in array"
+      :class="{activeRed: index === currentIndex}"
+        @click="btnClick(index)">
+      {{index}}.{{item}}
+    </li>
+  </ul>
+</div>
+
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      array: ['C++','Java','Python'],
+      currentIndex: 0
+    },
+    methods: {
+      btnClick(index) {
+        this.currentIndex = index;
+      }
+    }
+  });
+
+</script>
+
+</body>
+</html>

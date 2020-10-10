@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<body>
+<div id="app">
+
+<!--  方案1-->
+  <h2>{{firstName}} {{lastName}}</h2>
+
+<!--  方案2 methods-->
+  <h2>{{getFullName()}}</h2>
+  <h2>{{getFullName()}}</h2>
+  <h2>{{getFullName()}}</h2>
+  <h2>{{getFullName()}}</h2>
+
+
+<!--  方案3 计算属性-->
+  <h2>{{fullName}}</h2>
+  <h2>{{fullName}}</h2>
+  <h2>{{fullName}}</h2>
+  <h2>{{fullName}}</h2>
+
+<!-- methods方法被调用4次，而计算属性只调用1次 计算属性有缓存，效率比methods方法高 -->
+
+</div>
+</body>
+<script>
+
+  const app = new Vue({
+    el:"#app",
+    data:{
+      firstName: "Tony",
+      lastName: "Stark"
+    },
+    computed:{
+      fullName:function () {   //计算属性简写
+        console.log("fullName--");
+        return this.firstName + " " + this.lastName;
+      }
+    },
+    methods:{
+      getFullName: function () {
+        console.log("getFullName()--");
+        return this.firstName + " " + this.lastName;
+      }
+    }
+  });
+
+</script>
+
+<vue>
+</vue>
+</html>

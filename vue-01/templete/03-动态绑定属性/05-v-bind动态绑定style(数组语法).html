@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<body>
+<div id="app">
+
+  <h2 v-bind:style="[style1,style2]">{{message}}</h2>
+
+</div>
+</body>
+<script>
+
+  const app = new Vue({
+    el:"#app",
+    data:{
+      "message": "你好啊",
+      "style1": {background:"red"},
+      "style2": {fontSize:"50px"}
+    }
+
+  });
+
+</script>
+
+<vue>
+</vue>
+</html>

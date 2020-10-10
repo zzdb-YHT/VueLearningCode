@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+
+  <!--  1.v-for 遍历对象 如果只取一个值，那么取到的是 value -->
+  <ul>
+    <li v-for="item in person">{{item}}</li>
+  </ul>
+
+  <!--  2.v-for 遍历对象, 需要取 value 和 key 时，格式为： （value,key）-->
+  <ul>
+    <li v-for="(value,key) in person">{{value}}-{{key}}</li>
+  </ul>
+
+  <!--  3.v-for 遍历对象, 需要取 value 和 key 和 index 时，格式为： （value,key,index）-->
+  <ul>
+    <li v-for="(value,key,index) in person">{{value}}-{{key}}-{{index}}</li>
+  </ul>
+
+
+
+
+</div>
+
+
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      person : {
+        name:'于大宝',
+        age:24,
+        height:1.65
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

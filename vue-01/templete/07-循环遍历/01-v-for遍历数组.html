@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+
+<!--  1.v-for 遍历数组 -->
+  <ul>
+    <li v-for="item in names">{{item}}</li>
+  </ul>
+
+<!--  2.v-for 遍历数组，并使用下标属性-->
+  <ul>
+    <li v-for="(item,index) in names">{{index + 1}}.{{item}}</li>
+  </ul>
+</div>
+
+
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+       names: ['灵笼','元龙','秦时明月']
+    }
+  });
+</script>
+
+</body>
+</html>

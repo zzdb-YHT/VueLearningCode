@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+
+<body>
+<!--<div id="app">-->
+<!--  <span v-if="loginMethod">-->
+<!--    <label for="loginId">用户名：</label>-->
+<!--    <input type="text" id="loginId" placeholder="请输入用户名">-->
+<!--  </span>-->
+<!--  <span v-else>-->
+<!--     <label for="emailID">邮箱名：</label>-->
+<!--    <input type="text" id="emailID" placeholder="请输入邮箱名">-->
+<!--  </span>-->
+<!--  <button @click="loginMethod = !loginMethod">切换方式</button>-->
+<!--</div>-->
+
+<!--
+     由于Vue的底层原因，以上代码存在dom复用问题，input标签中的的内容，在切换登录方式之后依然存在
+     可使用 key 属性  避免这种情况, key 值不同时，即不可复用
+ -->
+<div id="app">
+  <span v-if="loginMethod">
+    <label for="loginId">用户名：</label>
+    <input type="text" id="loginId" placeholder="请输入用户名" key="loginId">
+  </span>
+  <span v-else>
+     <label for="emailID">邮箱名：</label>
+    <input type="text" id="emailID" placeholder="请输入邮箱名" key="emailIdD">
+  </span>
+  <button @click="loginMethod = !loginMethod">切换方式</button>
+</div>
+
+
+</body>
+
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      loginMethod: true
+    }
+  });
+</script>
+
+</html>

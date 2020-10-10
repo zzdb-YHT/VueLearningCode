@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+<!-- Vue官方建议 v-for 遍历数组时，加上 :key ， 可提高数组渲染效率-->
+
+
+  <!--  1.v-for 在不使用 key 时，在数组中间添加元素时，会以较低效率的方式进行，会将原来的元素改变，再在数组后添加元素，即添加位置及之后的元素都会改变  -- 类似数组
+   -->
+  <ul>
+    <li v-for="item in names">{{item}}</li>
+  </ul>
+
+  <!--  2.v-for 在使用 key 时，添加元素时，会使用较高效率的方式，会直接新建元素，放在响应位置   -- 类似链表
+          key 的 绑定必须一一对应，建议直接用 item ，不可用 index ，因为 数组在做修改操作时，index 值可能会发生改变
+   -->
+  <ul>
+    <li v-for="item in names" :key="item">{{item}}</li>
+  </ul>
+</div>
+
+
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      names: ['灵笼','元龙','秦时明月']
+    }
+  });
+
+//  js数组操作方法 -   splice(起始index，删除元素个数，插入元素);
+
+</script>
+
+</body>
+</html>

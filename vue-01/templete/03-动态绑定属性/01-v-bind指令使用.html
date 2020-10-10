@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<script type="text/javascript" src="../../js/vue.js"></script>
+<body>
+<div id="app">
+  <img v-bind:src="imageUrl" style="width: 200px;height: 200px"/>
+  <a v-bind:href="url">百度一下</a>
+
+<!--  语法糖-->
+  <img :src="imageUrl" style="width: 200px;height: 200px"/>
+  <a :href="url">百度一下</a>
+</div>
+</body>
+<script>
+
+  const app = new Vue({
+    el:"#app",
+    data:{
+      "imageUrl":"../../img/godness.jpg",
+      "url":"http://www.baidu.com"
+    }
+
+  });
+
+</script>
+
+<vue>
+</vue>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+
+<body>
+<div id="app">
+  <div v-if="isShow">
+    <h1>isShow 为 true 显示我</h1>
+  </div>
+  <div v-else>
+    <h1>isShow 不为 true 显示我</h1>
+  </div>
+
+</div>
+
+</body>
+
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      isShow: true
+    }
+  });
+</script>
+
+</html>
