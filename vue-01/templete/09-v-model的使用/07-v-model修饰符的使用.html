@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+
+<!-- v-model 修饰符的使用-->
+
+
+<div id="app">
+
+<!-- 1.lazy 修饰符 只在文本框回车或失去焦点等操作后，才进行数据绑定 -->
+
+  <input type="text" v-model="message1">
+  <h2>您输入的内容：{{message1}}</h2>
+
+  <input type="text" v-model.lazy="message2">
+  <h2>您输入的内容(使用lazy修饰符)：{{message2}}</h2>
+
+
+  <!-- 2.number 修饰符 v-model 绑定默认会变成 String 类型 使用 number 可指定绑定类型 -->
+
+  <input type="number" v-model="age1">
+  <h2>数据及类型：{{age1}}-{{typeof age1}}</h2>
+
+  <input type="number" v-model.number="age2">
+  <h2>数据及类型(使用number修饰符)：{{age2}}-{{typeof age2}}</h2>
+
+
+  <!-- 3.trim 修饰符 自动去掉文本两边的空格  该修饰符 只能在控制台演示 (界面显示会自动去掉空格) -->
+
+  <input type="text" v-model="name1">
+  <h2>您输入的内容：{{name1}}</h2>
+
+  <input type="text" v-model.trim="name2">
+  <h2>您输入的内容(使用trim修饰符)：{{name2}}</h2>
+
+
+</div>
+
+<script>
+  const app = new Vue({
+    el:'#app',
+    data: {
+      message1: "",
+      message2: "",
+      age1: 0,
+      age2: 0,
+      name1: "",
+      name2: ""
+    }
+  });
+</script>
+
+</body>
+</html>

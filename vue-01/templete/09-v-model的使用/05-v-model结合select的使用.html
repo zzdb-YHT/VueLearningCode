@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+
+<!-- select 分为两种情况
+
+1.单选框：value 是 字符串
+2.复选框：value 是 数组
+
+ -->
+
+<div id="app">
+
+  <!-- 1.单选select示例 -->
+<!--    <label>请选择水果（单选）：-->
+<!--      <select name="test1" v-model="fruit">-->
+<!--        <option value="苹果">苹果</option>-->
+<!--        <option value="香蕉">香蕉</option>-->
+<!--        <option value="葡萄">葡萄</option>-->
+<!--        <option value="西瓜">西瓜</option>-->
+<!--      </select>-->
+<!--    </label>-->
+<!--    <h2>您选择的水果是：{{fruit}}</h2>-->
+
+
+  <!-- 2.多选select示例-->
+  <label>请选择水果（多选）：
+    <select name="test1" v-model="fruits" multiple>
+      <option value="苹果">苹果</option>
+      <option value="香蕉">香蕉</option>
+      <option value="葡萄">葡萄</option>
+      <option value="西瓜">西瓜</option>
+    </select>
+  </label>
+  <h2>您选择的水果是：{{fruits}}</h2>
+
+
+</div>
+
+<script>
+  const app = new Vue({
+    el:'#app',
+    data: {
+      fruit: "西瓜",
+      fruits: []
+    }
+  });
+</script>
+
+</body>
+</html>

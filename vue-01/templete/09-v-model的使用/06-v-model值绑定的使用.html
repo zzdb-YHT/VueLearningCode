@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+
+<!-- v-model 的值绑定，即通过 data 中的数据，绑定给 各选项值, 不再写死在 html 代码中-->
+
+<div id="app">
+
+
+
+<!--  <input type="checkbox" value="篮球" v-model="hobbies">篮球-->
+<!--  <input type="checkbox" value="足球" v-model="hobbies">足球-->
+<!--  <input type="checkbox" value="兵乓球" v-model="hobbies">兵乓球-->
+<!--  <input type="checkbox" value="羽毛球" v-model="hobbies">羽毛球-->
+
+<!--  <h2>您选择的爱好有：{{hobbies}}</h2>-->
+
+  <label v-for="hobby in originHobbies">
+    <input type="checkbox" v-bind:value="hobby" v-model="hobbies">{{hobby}}
+  </label>
+  <h2>您选择的爱好有：{{hobbies}}</h2>
+
+</div>
+
+<script>
+  const app = new Vue({
+    el:'#app',
+    data: {
+      originHobbies: ["篮球","足球","兵乓球","羽毛球"],  //原始选项值
+      hobbies: [],   //复选框结果
+    }
+  });
+</script>
+
+</body>
+</html>
