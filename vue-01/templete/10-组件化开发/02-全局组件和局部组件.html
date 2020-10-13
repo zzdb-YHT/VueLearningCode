@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+
+<!-- cpn1 是全局组件，在两个 Vue 实例中均会显示
+     cpn2 是只在app1中注册的组件，只会在 app1 中显示
+-->
+
+<div id="app1">
+  <h1>Vue实例1</h1>
+  <cpn1></cpn1>
+  <cpn2></cpn2>
+</div>
+
+<div id="app2">
+  <h1>Vue实例2</h1>
+  <cpn1></cpn1>
+  <cpn2></cpn2>
+</div>
+
+<script>
+
+  const cpn1 = Vue.extend({
+    template:`
+    <div>
+       <h2>全局组件</h2>
+    </div>
+    `
+  })
+
+  const cpn2 = Vue.extend({
+    template:`
+    <div>
+       <h2>局部组件</h2>
+    </div>
+    `
+  })
+
+  // 全局组件 与 局部组件 的 注册方式不同
+
+
+  Vue.component("cpn1",cpn1);  //  注册全局组件，可在多个 Vue 实例中使用
+
+  const app1 = new Vue({
+    el:"#app1",
+    components:{                           // 在Vue实例中注册的是 局部组件， 只能在该实例中使用
+      // 第一个cpn2是组件使用的标签名
+      cpn2:cpn2
+    }
+  })
+
+  const app2 = new Vue({
+    el:"#app2"
+  })
+
+</script>
+
+</body>
+</html>
