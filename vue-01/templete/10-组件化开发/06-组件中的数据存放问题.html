@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <cpn1></cpn1>
+  <cpn2></cpn2>
+</div>
+
+<template id="cpn1">
+  <h2>{{message1}}</h2>
+</template>
+
+<template id="cpn2">
+  <h2>{{message2}}</h2>
+</template>
+
+<script>
+
+// 组件中需要的动态数据放在 注册组件的 data 中， 是一个 函数
+
+  Vue.component("cpn1",{
+    template: "#cpn1",
+    data() {
+      return {
+        message1: "这是全局组件中存放的数据"
+      }
+    }
+  })
+
+
+  const app = new Vue({
+    el:"#app",
+    components:{
+      "cpn2": {
+        template: "#cpn2",
+        data() {
+          return {
+            message2: "这是局部组件存放的数据"
+          }
+        }
+      }
+    }
+  })
+</script>
+
+</body>
+
+
+
+
+</html>
