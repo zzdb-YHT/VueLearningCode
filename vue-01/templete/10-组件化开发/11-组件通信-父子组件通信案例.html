@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app">
+  <h1>父组件value1：{{value1}}</h1>
+  <h1>父组件value2：{{value2}}</h1>
+
+  <cpn :cvalue1="value1" :cvalue2="value2" v-on:value1change="changeValue1" v-on:value2change="changeValue2"></cpn>
+
+</div>
+
+<template id="cpn">
+  <div>
+    <h2>子组件value1：{{dcvalue1}}</h2>
+    <input type="text" v-bind:value="dcvalue1" v-on:input="cvalue1Change">   <!-- 数据双向绑定的实质 v-bind 绑定值， v-on 绑定input  -->
+
+    <h2>子组件value2：{{dcvalue2}}</h2>
+    <input type="text" v-bind:value="dcvalue2" v-on:input="cvalue2Change">
+  </div>
+</template>
+
+<script>
+
+//  该案例实现 组件 input 的双向绑定，并传数据至父组件，且有， value2 始终是 value1 的 100 倍
+
+//  在Vue的组件中，做数据的双向绑定时，不支持使用 props 中的数据，因为该数据主要用来 父组件向子组件传递数据
+//  所以在做数据的双向绑定时，需要使用 组件 data 中的数据，可以先将 props 中的数据赋值给 data
+//
+  const cpn = {
+    template: "#cpn",
+    props: {
+      cvalue1: Number,
+      cvalue2: Number
+    },
+    data() {
+      return {
+        dcvalue1: this.cvalue1,
+        dcvalue2: this.cvalue2
+      }
+    },
+    methods: {
+      cvalue1Change(event) {
+        this.dcvalue1 = event.target.value;
+        this.$emit("value1change", this.dcvalue1)    // 定义事件名注意驼峰标识
+        this.dcvalue2 = this.dcvalue1 * 100;
+        this.$emit("value2change",this.dcvalue1 * 100)
+
+      },
+      cvalue2Change(event) {
+        this.dcvalue2 = event.target.value;
+        this.$emit("value2change",this.dcvalue2)       // 定义事件名注意驼峰标识
+        this.dcvalue1 = this.dcvalue2 / 100;
+        this.$emit("value1change", this.dcvalue2 / 100)
+      }
+
+    }
+  }
+
+  const app = new Vue({
+    el: "#app",
+    data: {
+      value1: 1,
+      value2: 100
+    },
+    methods: {
+      changeValue1(value) {
+        this.value1 = value;
+      },
+      changeValue2(value) {
+        this.value2 = value;
+      }
+    },
+    components: {
+      cpn
+    }
+  })
+
+</script>
+
+
+
+</body>
+</html>
