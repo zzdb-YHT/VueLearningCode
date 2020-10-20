@@ -59,7 +59,15 @@
         this.dcvalue1 = this.dcvalue2 / 100;
         this.$emit("value1change", this.dcvalue2 / 100)
       }
-
+    },
+    watch: {                         //  watch 监听属性的改变  本次案例也可使用 v-model 结合 watch 实现
+      dcvalue1(newValue) {
+        console.log("value1发生了改变：", newValue)
+      },
+      dcvalue2(newValue,oldValue) {
+        console.log("value2发生了改变：", newValue)
+        console.log("value2发生了改变,原始值：", oldValue)
+      },
     }
   }
 
