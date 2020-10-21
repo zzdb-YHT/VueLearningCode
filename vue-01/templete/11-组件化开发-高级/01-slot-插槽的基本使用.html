@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <cpn1><span>传给组件1的插槽-span</span></cpn1>
+  <cpn1><button>按钮1</button></cpn1>
+  <cpn2></cpn2>
+  <cpn2><button>按钮2</button></cpn2>
+  <cpn2>
+    <span>元素1</span>
+    <button>元素2</button>
+  </cpn2>
+
+</div>
+
+<template id="cpn1">
+  <div>
+    <h2>我是组件1</h2>
+    <slot></slot>
+  </div>
+</template>
+
+<template id="cpn2">
+  <div>
+    <h2>我是组件2</h2>
+    <slot><span>组件2的默认插槽</span></slot>
+  </div>
+</template>
+
+<script>
+
+  //   slot-插槽的基本使用要点
+  //  1.slot-插槽用于对 同类型 的组件进行封装,但留有 slot 插槽 应对个性化, 使用组件时,可动态传入不同的元素
+  //  2.slot-插槽可定义默认元素,在使用该组件不传元素时,就会使用插槽的默认元素
+  //  3.当使用插槽传入多个元素时,多个元素都会被解析
+
+
+  const app = new Vue({
+    el: "#app",
+    components: {
+      cpn1:{
+        template: "#cpn1"
+      },
+      cpn2: {
+        template: "#cpn2"
+      }
+    }
+  })
+</script>
+
+</body>
+</html>
