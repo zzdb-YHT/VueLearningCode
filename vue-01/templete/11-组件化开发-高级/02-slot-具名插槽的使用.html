@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+
+<!--
+
+具名插槽- 在组件中需要多个插槽时，需要为插槽 设置名字属性，在使用组件时，通过名字来对 组件中指定的插槽进行替换
+
+-->
+
+<div id="app">
+  <cpn><span>标题</span></cpn>
+  <cpn><h2 slot="slot1">替换的插槽1</h2></cpn>
+  <cpn><span slot="slot2">替换的插槽2</span> </cpn>
+  <cpn><button slot="slot3">替换的插槽3</button></cpn>
+  <cpn>
+    <h2 slot="slot1">全部替换</h2>
+    <span slot="slot2">全部替换</span>
+    <button slot="slot3">全部替换</button>
+  </cpn>
+</div>
+
+<template id="cpn">
+  <div style="margin-top: 50px">
+    <slot></slot>
+    <slot name="slot1"><span>插槽1</span></slot>
+    <slot name="slot2"><span>插槽2</span></slot>
+    <slot name="slot3"><span>插槽3</span></slot>
+  </div>
+</template>
+
+<script>
+
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!"
+    },
+    components: {
+      cpn: {
+        template: "#cpn"
+      }
+    }
+  })
+
+</script>
+
+</body>
+</html>

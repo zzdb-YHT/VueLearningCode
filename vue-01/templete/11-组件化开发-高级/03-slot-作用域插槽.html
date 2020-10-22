@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+
+<!--
+      插槽只能拿到自己作用域内的数据
+      作用域插槽用来处理： 父组件替换插槽的标签，但使用子组件的数据，内容由子组件提供
+-->
+
+<div id="app">
+  <cpn></cpn>
+
+<!--  目的是获取子组件中的数据
+      组件定义时，设置 : 属性 并为要传的数据 设置名称（data 可以是其他），
+      使用时 通过 template scope 设置引用对象， 在插槽中 通过对象 和 数据名称 来进行使用
+ -->
+  <cpn>
+    <template scope="slot">
+      <span v-for="item in slot.data">{{item}}-</span>
+    </template>
+  </cpn>
+
+  <cpn>
+    <template scope="slot">
+      <button v-for="item in slot.data">{{item}}-</button>
+    </template>
+  </cpn>
+
+</div>
+
+<template id="cpn">
+  <div>
+    <slot :data="list">
+      <ul>
+        <li v-for="item in list">{{item}}-</li>
+      </ul>
+    </slot>
+  </div>
+</template>
+
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      "message": "Hello"
+    },
+    components:{
+      cpn: {
+        template: "#cpn",
+        data() {
+          return {
+            list: ["C++","Java","Python"]
+          }
+        }
+      }
+    }
+  })
+</script>
+
+</body>
+</html>
