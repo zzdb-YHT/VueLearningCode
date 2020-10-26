@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<!--
+
+webpack 统一打包 css 文件（ loader的使用） 注意点 ：
+
+1.css 文件也可直接在入口文件 main.js 中，通过 require 引入
+
+2.webpack 打包的内容包含 css 文件时，需要配置相应的 loader， 可在官网上查看需要的 loader
+
+3.本例中打包 css 需要的 loader：
+  css-loader :  解析 CSS 文件后，使用 import 加载，并且返回 CSS 代码
+  style_loader :  将模块的导出作为样式添加到 DOM 中
+
+4.使用 npm 安装完对应的 loader 后，需要配置 webpack.config.js 的 module，
+  其中 use 模块的读取顺序是从右向左，顺序不能写错
+
+5.在出现打包失败后，可能是 loader 的版本过高，可尝试手动修改，再进行 npm install
+
+-->
+
+<script src="dist/bundle.js"></script>
+</body>
+</html>
