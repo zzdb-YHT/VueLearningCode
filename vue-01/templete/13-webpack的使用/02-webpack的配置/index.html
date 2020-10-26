@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<!--
+
+webpack 的 配置
+
+1.原始的 webpack 打包命令可通过建立 webpack.config.js 手动设置 入口文件 和 出口文件 进行设置
+  原始复杂的命令即可简化为： webpack 即可
+
+2.在建立 webpack.config.js 时，出口文件需要设置绝对路径，需要依赖 node 获取
+  此处需要命令  npm init  先建立包（此处只需设置包名即可），执行完会生成 package.json 文件
+  之后便可直接使用 webpack 命令打包
+
+3.在正式使用中，webpack 命令较少使用，可在 package.json 的 script 中配置脚本
+  "build": "webpack"，
+  即可通过使用 npm run build 命令来进行打包
+
+4.此时 webpack 和 npm install build 来进行打包是不一样的
+  webpack 命令在所有终端都会优先使用全局的 webpack 版本进行打包
+  npm run build 会 优先使用本地（本项目下的）webpack 版本进行打包
+
+5.本地安装 webpack 只需要执行命令 npm install webpack@版本号 即可
+  此处由于 webpack 只是开发时依赖，所以命令为： npm install webpack@3.6.0 --save-dev
+  安装完成后项目下会生成对应的 node_modules , package.json 会自动生成 devDependencies 即开发时依赖
+
+
+-->
+
+<script src="dist/bundle.js"></script>
+</body>
+</html>
