@@ -13,5 +13,8 @@ console.log(multiply(20,5))
 console.log(divide(20,5))
 
 // 引入 css 样式文件
-
 require("./css/normal.css")
+
+// 引入 less 样式文件
+require("./css/special.less")
+document.writeln("<h2>引入的less文件样式</h2>")

@@ -57,108 +57,14 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_info__ = __webpack_require__(2);
-// 修改原因： 入口文件一般放在文件夹外面
-
-// 1.使用 commonJs 的模块化规范
-const {name1,add,sub} = __webpack_require__(1)
-console.log(name1)
-console.log(add(30,20))
-console.log(sub(30,20))
-
-// 2.使用 ES6 的模块化规范导入
-
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["c" /* name2 */])
-console.log(Object(__WEBPACK_IMPORTED_MODULE_0__js_info__["b" /* multiply */])(20,5))
-console.log(Object(__WEBPACK_IMPORTED_MODULE_0__js_info__["a" /* divide */])(20,5))
-
-// 引入 css 样式文件
-
-__webpack_require__(3)
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-
-const name1 = "大宝"
-
-function add(num1,num2) {
-  return num1 + num2;
-}
-
-function sub(num1,num2) {
-  return num1 - num2;
-}
-
-
-// 1.commonJs 的导出规范
-module.exports = {
-  name1,
-  add,
-  sub
-}
-
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["b"] = multiply;
-/* harmony export (immutable) */ __webpack_exports__["a"] = divide;
-// 2.ES6 的导出规范
-const name2 = "小宝"
-/* harmony export (immutable) */ __webpack_exports__["c"] = name2;
-
-function multiply(num1,num2) {
-  return num1 * num2;
-}
-
-function divide(num1,num2) {
-  return num1 / num2;
-}
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var api = __webpack_require__(4);
-            var content = __webpack_require__(5);
-
-            content = content.__esModule ? content.default : content;
-
-            if (typeof content === 'string') {
-              content = [[module.i, content, '']];
-            }
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = api(content, options);
-
-
-
-module.exports = content.locals || {};
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -433,20 +339,7 @@ module.exports = function (list, options) {
 };
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(6);
-exports = ___CSS_LOADER_API_IMPORT___(false);
-// Module
-exports.push([module.i, "body {\r\n  background-color: red;\r\n}", ""]);
-// Exports
-module.exports = exports;
-
-
-/***/ }),
-/* 6 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -544,6 +437,202 @@ function toComment(sourceMap) {
   var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
   return "/*# ".concat(data, " */");
 }
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_info__ = __webpack_require__(4);
+// 修改原因： 入口文件一般放在文件夹外面
+
+// 1.使用 commonJs 的模块化规范
+const {name1,add,sub} = __webpack_require__(3)
+console.log(name1)
+console.log(add(30,20))
+console.log(sub(30,20))
+
+// 2.使用 ES6 的模块化规范导入
+
+console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["c" /* name2 */])
+console.log(Object(__WEBPACK_IMPORTED_MODULE_0__js_info__["b" /* multiply */])(20,5))
+console.log(Object(__WEBPACK_IMPORTED_MODULE_0__js_info__["a" /* divide */])(20,5))
+
+// 引入 css 样式文件
+__webpack_require__(5)
+
+// 引入 less 样式文件
+__webpack_require__(9)
+document.writeln("<h2>引入的less文件样式</h2>")
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+
+const name1 = "大宝"
+
+function add(num1,num2) {
+  return num1 + num2;
+}
+
+function sub(num1,num2) {
+  return num1 - num2;
+}
+
+
+// 1.commonJs 的导出规范
+module.exports = {
+  name1,
+  add,
+  sub
+}
+
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["b"] = multiply;
+/* harmony export (immutable) */ __webpack_exports__["a"] = divide;
+// 2.ES6 的导出规范
+const name2 = "小宝"
+/* harmony export (immutable) */ __webpack_exports__["c"] = name2;
+
+function multiply(num1,num2) {
+  return num1 * num2;
+}
+
+function divide(num1,num2) {
+  return num1 / num2;
+}
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(0);
+            var content = __webpack_require__(6);
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(1);
+var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(7);
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(8);
+exports = ___CSS_LOADER_API_IMPORT___(false);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+// Module
+exports.push([module.i, "body {\r\n  /*background-color: red;*/\r\n  /*background: url(\"../img/test1.jpg\");*/\r\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function (url, options) {
+  if (!options) {
+    // eslint-disable-next-line no-param-reassign
+    options = {};
+  } // eslint-disable-next-line no-underscore-dangle, no-param-reassign
+
+
+  url = url && url.__esModule ? url.default : url;
+
+  if (typeof url !== 'string') {
+    return url;
+  } // If url is already wrapped in quotes, remove them
+
+
+  if (/^['"].*['"]$/.test(url)) {
+    // eslint-disable-next-line no-param-reassign
+    url = url.slice(1, -1);
+  }
+
+  if (options.hash) {
+    // eslint-disable-next-line no-param-reassign
+    url += options.hash;
+  } // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+
+
+  if (/["'() \t\n]/.test(url) || options.needQuotes) {
+    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, '\\n'), "\"");
+  }
+
+  return url;
+};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/test2-6a969a19.png";
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(0);
+            var content = __webpack_require__(10);
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(1);
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "body {\n  font-size: 50px;\n  color: blue;\n}\n", ""]);
+// Exports
+module.exports = exports;
+
 
 /***/ })
 /******/ ]);
