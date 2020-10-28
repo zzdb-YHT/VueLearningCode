@@ -55,5 +55,12 @@ module.exports = {
         }
       }
     ]
+  },
+
+  // 使用Vue的配置，设置为 runtime-complier 版本，允许代码中有 template， 可以编译
+  resolve: {
+    alias: {
+      "vue$": "vue/dist/vue.esm.js"
+    }
   }
 }

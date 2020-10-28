@@ -440,76 +440,83 @@ function toComment(sourceMap) {
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_info__ = __webpack_require__(4);
+
+
+var _info = __webpack_require__(3);
+
 // 修改原因： 入口文件一般放在文件夹外面
 
 // 1.使用 commonJs 的模块化规范
-const {name1,add,sub} = __webpack_require__(3)
-console.log(name1)
-console.log(add(30,20))
-console.log(sub(30,20))
+var _require = __webpack_require__(4),
+    name1 = _require.name1,
+    add = _require.add,
+    sub = _require.sub;
+
+console.log(name1);
+console.log(add(30, 20));
+console.log(sub(30, 20));
 
 // 2.使用 ES6 的模块化规范导入
 
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["c" /* name2 */])
-console.log(Object(__WEBPACK_IMPORTED_MODULE_0__js_info__["b" /* multiply */])(20,5))
-console.log(Object(__WEBPACK_IMPORTED_MODULE_0__js_info__["a" /* divide */])(20,5))
+console.log(_info.name2);
+console.log((0, _info.multiply)(20, 5));
+console.log((0, _info.divide)(20, 5));
 
 // 引入 css 样式文件
-__webpack_require__(5)
+__webpack_require__(5);
 
 // 引入 less 样式文件
-__webpack_require__(9)
-document.writeln("<h2>引入的less文件样式</h2>")
+__webpack_require__(9);
+document.writeln("<h2>引入的less文件样式</h2>");
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
-
-
-const name1 = "大宝"
-
-function add(num1,num2) {
-  return num1 + num2;
-}
-
-function sub(num1,num2) {
-  return num1 - num2;
-}
-
-
-// 1.commonJs 的导出规范
-module.exports = {
-  name1,
-  add,
-  sub
-}
-
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["b"] = multiply;
-/* harmony export (immutable) */ __webpack_exports__["a"] = divide;
-// 2.ES6 的导出规范
-const name2 = "小宝"
-/* harmony export (immutable) */ __webpack_exports__["c"] = name2;
 
-function multiply(num1,num2) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.multiply = multiply;
+exports.divide = divide;
+// 2.ES6 的导出规范
+var name2 = exports.name2 = "小宝";
+function multiply(num1, num2) {
   return num1 * num2;
 }
 
-function divide(num1,num2) {
+function divide(num1, num2) {
   return num1 / num2;
 }
 
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var name1 = "大宝";
+
+function add(num1, num2) {
+  return num1 + num2;
+}
+
+function sub(num1, num2) {
+  return num1 - num2;
+}
+
+// 1.commonJs 的导出规范
+module.exports = {
+  name1: name1,
+  add: add,
+  sub: sub
+};
 
 /***/ }),
 /* 5 */

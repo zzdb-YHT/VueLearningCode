@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<!--
+vue 使用时会有版本问题：
+
+1.runtime-only 代码中不可以有任何 template 默认
+2.runtime-complier 代码中可以有 template， 可以进行编译，需要手动配置 webpack 的配置文件
+
+-->
+
+<div id="app">
+{{message}}
+</div>
+
+<script src="dist/bundle.js"></script>
+</body>
+</html>

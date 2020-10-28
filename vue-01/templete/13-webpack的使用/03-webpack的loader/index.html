@@ -10,7 +10,7 @@
 
 查找打包相应文件的 loader 可上 webpack 中文网进行查看
 
-webpack 统一打包 css 文件（ loader的使用） 注意点 ：
+第1节：webpack 统一打包 css 文件（ loader的使用） 注意点 ：
 
 1.css 文件也可直接在入口文件 main.js 中，通过 require 引入
 
@@ -25,7 +25,7 @@ webpack 统一打包 css 文件（ loader的使用） 注意点 ：
 
 5.在出现打包失败后，可能是 loader 的版本过高，可尝试手动修改，再进行 npm install
 
-webpack 打包 less 文件 要点：
+第2节 webpack 打包 less 文件 要点：
 
 1.less 文件也是一种样式文件，用来设置页面样式
 
@@ -36,7 +36,7 @@ webpack 打包 less 文件 要点：
 
 4.打包失败可尝试降低 loader 版本
 
-webpack 打包图片注意点：
+第3节 webpack 打包图片注意点：
 
 1.打包图片的 loader 是 url-loader, 当图片大小大于 limit 需要安装 file-loader 处理
 
@@ -47,6 +47,13 @@ webpack 打包图片注意点：
   为便于查看访问后的图片，还可以在 option 中配置 生成图片的 name
 
 4.打包失败可尝试降低 loader 版本，或重新引入图片
+
+第4节 es6 转 es5 语法
+
+1.以上的各种转化，都会转换成 es6 语法，浏览器适配性不够，需要转成 es5 语法
+
+2.转 es5 语法需要的是 babel-loader
+  命令为： npm install babel-loader@7 babel-core babel-preset-es2015 --save-dev
 
 -->
 
