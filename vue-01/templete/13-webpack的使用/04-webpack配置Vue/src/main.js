@@ -21,9 +21,30 @@ document.writeln("<h2>引入的less文件样式</h2>")
 
 // 引入 Vue
 import Vue from 'vue'
-const app = new Vue({
+
+//声明组件， 该部分代码被封装到 .vue 文件中
+// const cpn = {
+//   template:`
+//   <div>
+//     <h2>{{message}}</h2>
+//   </div>
+//   `,
+//   data() {
+//     return {
+//       message: "Hello World"
+//     }
+//   }
+// }
+
+// Vue 在解析时，会将 template 中的内容放到 el 指定的 div 中
+
+import Cpn from "./vue/Cpn.vue"
+
+// 从 Cpn.vcue 中引入 Cpn, 注册并使用 Cpn 组件
+new Vue({
   el: "#app",
-  data: {
-    message: "Hello World"
+  template: "<Cpn></Cpn>",
+  components: {
+    Cpn
   }
 })

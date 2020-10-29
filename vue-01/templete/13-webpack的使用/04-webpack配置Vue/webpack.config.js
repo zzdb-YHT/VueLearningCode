@@ -53,7 +53,13 @@ module.exports = {
             presets: ['es2015']
           }
         }
-      }
+      },
+
+      // 打包 vue 文件配置
+      {
+        test: /\.vue/,
+        use: [ 'vue-loader' ]
+      },
     ]
   },
 
