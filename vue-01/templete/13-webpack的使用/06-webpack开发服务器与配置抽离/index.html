@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<!--
+webpack 的开发服务器与配置抽离
+1.为方便开发人员，可通过配置本地开发服务器，来进行实时测试， 当代码发生改动后，不用进行 webpack 打包，即可进行实时测试。
+  npm install webpack-dev-server@2.9.1 --save-dev
+
+2.本地服务器需要在 package.json 中重新配置脚本来启动， 因为这里是本地安装, 可使用 ctrl + c 终止服务
+
+3.配置抽离是将本项目的配置抽离为 开发环境配置 和 生产环境配置，在项目中新建了 build 目录，需要安装 webpack-merge 进行配置合并
+  npm install webpack-merge --save-dev
+  因后续进入 vue-cli， 此处只做思想介绍，不再具体实现
+
+-->
+
+<div id="app">
+</div>
+
+
+<!-- 这里的代码发生改变，并保存后 会实时生效 -->
+<h2>实时改变</h2>
+
+<!--
+<script src="dist/bundle.js"></script>
+html-webpack-plugin 最终自动生成的 index.html 会自动引入 js 文件
+
+-->
+
+
+</body>
+</html>
