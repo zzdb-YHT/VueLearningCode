@@ -1,6 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../components/home'
-import About from '../components/about'
+
+// 默认方式
+// import Home from '../components/home'
+// import About from '../components/about'
+// import User from '../components/user'
+
+// 路由懒加载方式
+const Home = () => import('../components/home')
+const About = () => import('../components/about')
+const User = () => import('../components/user')
 
 const routes = [
   {
@@ -15,6 +23,12 @@ const routes = [
   {
     path: "/about",
     component: About
+  },
+
+  // 设置路由 url 可动态拼接内容 userId 未参数名称
+  {
+    path: "/user/:userId",
+    component: User
   }
 ]
 
