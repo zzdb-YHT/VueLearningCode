@@ -7,18 +7,42 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 // 路由懒加载方式
 const Home = () => import('../components/home')
+const News = () => import('../components/homeNews')
+const Message = () => import('../components/homeMessage')
+
 const About = () => import('../components/about')
 const User = () => import('../components/user')
+
+const Profile = () => import('../components/profile')
 
 const routes = [
   {
     // 通过 重定向配置默认选中项
-    path: '/',
+    path: '',
     redirect: '/home'
   },
   {
     path: '/home',
-    component: Home
+    component: Home,
+
+    // 路由嵌套配置
+    children: [
+      {
+        // 通过 重定向配置默认选中项, 嵌套时， 默认选中需加完整路径
+        path: '',
+        redirect: '/home/news'
+      },
+
+      // 配置 嵌套路径不需要加 ‘/’
+      {
+        path: 'news',
+        component: News,
+      },
+      {
+        path: 'message',
+        component: Message,
+      }
+    ]
   },
   {
     path: "/about",
@@ -29,6 +53,10 @@ const routes = [
   {
     path: "/user/:userId",
     component: User
+  },
+  {
+    path: "/profile",
+    component: Profile
   }
 ]
 

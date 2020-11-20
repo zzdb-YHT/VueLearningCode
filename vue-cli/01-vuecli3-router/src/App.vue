@@ -12,7 +12,7 @@
   js 代码 方式 (推荐)
   使用 click 监听，在方法中使用 this.$router.push() 或 this.$router.replace()
 
-  二.vue-router 动态路由
+  二.vue-router 动态路由 -- 路由传参： 方式1
 
   效果，url 路径后面 动态添加上 userId，并能够在相应组件中拿到该 userId
 
@@ -24,13 +24,20 @@
   为避免 vue 打包时将所有业务代码打包至1个js中，导致 js 过大，用户第1次加载缓慢等情况，
   可在路由配置文件中，通过配置懒加载，在打包时，即可即可对相应业务代码进行分包处理，用户在需要某个页面再去请求对应的 js 文件，而不是一次性都请求下来
 
+  四. 路由嵌套
+  通过在组件中增加 router-link 和 router-view， 并在 router 中对应的路径下配置 children 数组，配置相应的路径即可
+
+  五. 路由传参
+  方式1：动态路由传参，并通过  $route.params.paramName 获取参数
+  方式2：跳转参数增加 query 对象，并通过 $route.query.paramName 获取参数
+
 -->
 <!--  默认 router-link -->
-  <div id="nav">
-    <router-link to="/home">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link v-bind:to="'/user/' + userId">User</router-link>
-  </div>
+<!--  <div id="nav">-->
+<!--    <router-link to="/home">Home</router-link> |-->
+<!--    <router-link to="/about">About</router-link> |-->
+<!--    <router-link v-bind:to="'/user/' + userId">User</router-link>-->
+<!--  </div>-->
 
 <!-- router-link 属性 未生效  -->
 <!--  <div id="app">-->
@@ -44,6 +51,30 @@
 <!--    <button @click="toAbout">About</button>-->
 <!--  </div>-->
 <!--  -->
+
+<!--  路由传参 方式2 router-link 方式 -->
+<!--    <div id="nav">-->
+<!--      <router-link to="/home">Home</router-link> |-->
+<!--      <router-link to="/about">About</router-link> |-->
+<!--      <router-link v-bind:to="'/user/' + userId">User</router-link> |-->
+<!--      <router-link v-bind:to="{-->
+<!--        path: '/profile',-->
+<!--        query: {-->
+<!--          userName: 'admin',-->
+<!--          password: '123456'-->
+<!--        }-->
+<!--      }">Profile</router-link>-->
+<!--    </div>-->
+
+
+<!--  路由传参 方式2 js 代码 方式 -->
+    <div id="app">
+      <button @click="toHome">Home</button>
+      <button @click="toAbout">About</button>
+      <button @click="toUser">User</button>
+      <button @click="toProfile">Profile</button>
+    </div>
+
   <router-view></router-view>
 
 </template>
@@ -64,6 +95,19 @@
       toAbout() {
         this.$router.push("/about");
         // this.$router.replace("/about");
+      },
+      toUser() {
+        this.$router.push("/user/" + this.userId );
+      },
+      toProfile() {
+        this.$router.push({
+          path: '/profile',
+          query: {
+            userName: "admin",
+            password: "123456"
+          }
+        });
+
       }
     }
   }
