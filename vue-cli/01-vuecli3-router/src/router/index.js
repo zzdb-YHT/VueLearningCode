@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 
 // 默认方式
 // import Home from '../components/home'
@@ -24,39 +24,53 @@ const routes = [
   {
     path: '/home',
     component: Home,
+    meta: {  // meta 中放的一些数据在路由守卫中使用
+      title: '首页',
+      keepAlive: true
+    },
 
     // 路由嵌套配置
     children: [
-      {
-        // 通过 重定向配置默认选中项, 嵌套时， 默认选中需加完整路径
-        path: '',
-        redirect: '/home/news'
-      },
+      // 使用 keep-alive 配置默认选中项 和 保存状态，不再使用该方法
+      // {
+      //   // 通过 重定向配置默认选中项, 嵌套时， 默认选中需加完整路径
+      //   path: '',
+      //   redirect: '/home/news'
+      // },
 
       // 配置 嵌套路径不需要加 ‘/’
       {
         path: 'news',
-        component: News,
+        component: News
       },
       {
         path: 'message',
-        component: Message,
+        component: Message
       }
     ]
   },
   {
     path: "/about",
-    component: About
+    component: About,
+    meta: {
+      title: '关于'
+    }
   },
 
   // 设置路由 url 可动态拼接内容 userId 未参数名称
   {
     path: "/user/:userId",
-    component: User
+    component: User,
+    meta: {
+      title: '用户'
+    }
   },
   {
     path: "/profile",
-    component: Profile
+    component: Profile,
+    meta: {
+      title: '我的'
+    }
   }
 ]
 
