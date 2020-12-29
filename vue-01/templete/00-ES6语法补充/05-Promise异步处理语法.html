@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  new Promise((resolve,reject) => {
+
+    /*
+    异步代码写在这里面
+     */
+    // resolve("success!!!");  //正确执行调用 then 中
+    reject("error!!!")   // 发生错误的处理代码在 catch 中
+  }).then((data) => {
+    console.log(data);
+  }).catch((data) => {
+    console.log(data);
+  })
+
+</script>
+
+</body>
+</html>
