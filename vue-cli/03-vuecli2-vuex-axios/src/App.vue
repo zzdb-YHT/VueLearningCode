@@ -1,7 +1,17 @@
 <template>
   <div id="app">
 
-    <button @click="testType">官方建议的 mutations 写法</button>
+    <h2>modules中的state</h2>
+    <h2>{{$store.state.a.name}}</h2>
+    <button @click="updateName">更新modules中的name</button><br>
+    <h2>{{$store.getters.getFullName}}</h2>
+    <h2>{{$store.getters.getFullName2}}</h2>
+    <h2>{{$store.getters.getFullName3}}</h2>
+    <button @click="asyncUpdateName">异步更新modules中的name</button><br>
+
+    <button @click="asynUpdateUser">异步方式更新用户</button><br>
+
+    <button @click="testType">官方建议的 mutations 写法</button><br>
 
     <h2>{{$store.state.user}}</h2>
     <button @click="changeUser">验证一些非响应式方法</button>
@@ -70,6 +80,23 @@
       // 官方建议的 mutations 写法
       testType() {
         this.$store.commit(TEST_TYPE);
+      },
+
+      // 调用action方法，实现异步操作 Vuex 内容
+      asynUpdateUser() {
+        this.$store
+          .dispatch("asynUpdateUser","异步更新了User")
+          .then(message => {
+            console.log(message)
+          })
+      },
+
+      updateName() {
+        this.$store.commit("updateName","赵铁柱");
+      },
+
+      asyncUpdateName() {
+        this.$store.dispatch("aUpdateName");
       }
 
     }

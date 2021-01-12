@@ -5,8 +5,36 @@ import {
   TEST_TYPE
 } from './mutations-types'
 
-// 需要在要使用的组件中引用
+const moduleA = {
+  state: {
+    name: "张全蛋"
+  },
+  getters: {
+    getFullName(state) {
+      return state.name + "1111";
+    },
+    getFullName2(state,getter) {
+      return getter.getFullName + "2222";
+    },
+    getFullName3(state,getter,rootState) {
+      return getter.getFullName2 + rootState.counter;
+    }
+  },
+  mutations: {
+    updateName(state,payload) {
+      state.name = payload;
+    }
+  },
+  actions: {
+    aUpdateName(context) {
+      setTimeout(() => {
+        context.commit("updateName","李翠花");
+      },2000)
+    }
+  }
+}
 
+// 需要在要使用的组件中引用
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -73,10 +101,25 @@ const store = new Vuex.Store({
     //
     [TEST_TYPE](state) {
       console.log('官方建议的-mutations 写法');
+    },
+
+    updateUser(state) {
+      state.user.name = "Wilian";
     }
   },
-  actions: {
-
+  actions: {  // 异步更新全局变量，在这里处理
+    asynUpdateUser(context,payload) {
+      return new Promise((resolve,reject) => {
+        setTimeout(() =>{
+          console.log(payload);
+          context.commit("updateUser");
+          resolve("异步更新已完成")
+        }, 2000)
+      })
+    }
+  },
+  modules: {  // 避免所有的全局变量都放在 state 中, 将 store 分割成模块
+    a: moduleA
   }
 });
 
